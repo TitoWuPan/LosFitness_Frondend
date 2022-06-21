@@ -11,9 +11,7 @@ describe('UserProfileComponent', () => {
       declarations: [ UserProfileComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(UserProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
