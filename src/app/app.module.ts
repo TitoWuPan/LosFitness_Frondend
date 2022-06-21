@@ -1,20 +1,24 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { HomeComponent } from './components/home/home.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import {HttpClientModule} from '@angular/common/http';
+import { UsuarioControlerComponent } from './components/usuario-controler/usuario-controler.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserProfileComponent
-  ],
+  declarations: [ AppComponent, HomeComponent, UsuarioControlerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
