@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="titulo">RECOMPENSA A USUARIO</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">{{ accion | uppercase }} TARJETA</h5>
+            <form [formGroup]="form" (ngSubmit)="saverOrUpdateUsuario_Recompensa()">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                      <i
+                        class="fas fa-user"
+                        [class.green-icon]="this.form.get('idUsuario')?.valid"
+                        [class.red-icon]="
+                          this.form.get('idUsuario')?.invalid &&
+                          this.form.get('idUsuario')?.touched
+                        "
+                      ></i>
+                    </span>
+                    <input
+                      formControlName="idUsuario"
+                      type="text"
+                      class="form-control"
+                      placeholder="Usuario"
+                    />
+                  </div>
+              
+
+                <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                  <i
+                    class="fas fa-user"
+                    [class.green-icon]="this.form.get('idRecompensa')?.valid"
+                    [class.red-icon]="
+                      this.form.get('idRecompensa')?.invalid &&
+                      this.form.get('idRecompensa')?.touched
+                    "
+                  ></i>
+                </span>
+                <input
+                  formControlName="idRecompensa"
+                  type="text"
+                  class="form-control"
+                  placeholder="Recompensa"
+                />
+                </div>
+
+              <div class="d-grid gap-2">
+                <button
+                  [disabled]="this.form.invalid"
+                  type="submit"
+                  class="btn btn-success btn-lg"
+                >
+                  <i class="fas fa-database"></i>&nbsp; Aceptar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">LISTADO DE RECOMPENSA A USUARIO</h5>
+            <table class="table">
+              <tbody>
+                <tr *ngFor="let Usuario_Recompensa of usuario_Recompensas">
+                    <td>{{ Usuario_Recompensa.idUsuario }}</td>
+                    <td>{{ Usuario_Recompensa.idRecompensa }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

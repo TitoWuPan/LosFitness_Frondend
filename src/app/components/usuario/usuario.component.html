@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="titulo">USUARIO</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">{{ accion | uppercase }} TARJETA</h5>
+            <form [formGroup]="form" (ngSubmit)="saverOrUpdateUsuario()">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                      <i
+                        class="fas fa-user"
+                        [class.green-icon]="this.form.get('nombre')?.valid"
+                        [class.red-icon]="
+                          this.form.get('nombre')?.invalid &&
+                          this.form.get('nombre')?.touched
+                        "
+                      ></i>
+                    </span>
+                    <input
+                      formControlName="nombre"
+                      type="text"
+                      class="form-control"
+                      placeholder="Nombre"
+                    />
+                  </div>
+              
+
+                <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                  <i
+                    class="fas fa-user"
+                    [class.green-icon]="this.form.get('apellido')?.valid"
+                    [class.red-icon]="
+                      this.form.get('apellido')?.invalid &&
+                      this.form.get('apellido')?.touched
+                    "
+                  ></i>
+                </span>
+                <input
+                  formControlName="apellido"
+                  type="text"
+                  class="form-control"
+                  placeholder="Apellido"
+                />
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                      <i
+                        class="fas fa-user"
+                        [class.green-icon]="this.form.get('peso')?.valid"
+                        [class.red-icon]="
+                          this.form.get('peso')?.invalid &&
+                          this.form.get('peso')?.touched
+                        "
+                      ></i>
+                    </span>
+                    <input
+                      formControlName="peso"
+                      type="text"
+                      class="form-control"
+                      placeholder="Peso"
+                    />
+                    </div>
+  
+              <div class="d-grid gap-2">
+                <button
+                  [disabled]="this.form.invalid"
+                  type="submit"
+                  class="btn btn-success btn-lg"
+                >
+                  <i class="fas fa-database"></i>&nbsp; Aceptar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">LISTADO DE USUARIO</h5>
+            <table class="table">
+              <tbody>
+                <tr *ngFor="let Usuario of usuarios">
+                    <td>{{ Usuario.nombre }}</td>
+                    <td>{{ Usuario.apellido }}</td>
+                    <td>{{ Usuario.peso }}</td>
+                    <td>{{ Usuario.imageURL }}</td>
+                  <td>
+                    <i
+                      (click)="editarUsuario(Usuario)"
+                      class="far fa-edit text-info"
+                    ></i>
+                  </td>
+                  <td>
+                    <i
+                      (click)="eliminarUsuario(Usuario.id)"
+                      class="far fa-trash-alt text-danger"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

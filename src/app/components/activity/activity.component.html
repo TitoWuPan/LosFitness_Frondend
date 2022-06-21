@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="titulo">ACTIVITY</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">{{ accion | uppercase }} TARJETA</h5>
+            <form [formGroup]="form" (ngSubmit)="saverOrUpdateActivity()">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                      <i
+                        class="fas fa-user"
+                        [class.green-icon]="this.form.get('titulo')?.valid"
+                        [class.red-icon]="
+                          this.form.get('titulo')?.invalid &&
+                          this.form.get('titulo')?.touched
+                        "
+                      ></i>
+                    </span>
+                    <input
+                      formControlName="titulo"
+                      type="text"
+                      class="form-control"
+                      placeholder="Titulo"
+                    />
+                  </div>
+              
+                <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                  <i
+                    class="fas fa-user"
+                    [class.green-icon]="this.form.get('description')?.valid"
+                    [class.red-icon]="
+                      this.form.get('description')?.invalid &&
+                      this.form.get('description')?.touched
+                    "
+                  ></i>
+                </span>
+                <input
+                  formControlName="description"
+                  type="text"
+                  class="form-control"
+                  placeholder="Description"
+                />
+              </div>
+  
+              <div class="d-grid gap-2">
+                <button
+                  [disabled]="this.form.invalid"
+                  type="submit"
+                  class="btn btn-success btn-lg"
+                >
+                  <i class="fas fa-database"></i>&nbsp; Aceptar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">LISTADO DE ACTIVITY</h5>
+            <table class="table">
+              <tbody>
+                <tr *ngFor="let Activity of activities">
+                  <td>{{ Activity.titulo }}</td>
+                  <td>{{ Activity.description }}</td>
+                  <td>
+                    <i
+                      (click)="editarActivity(Activity)"
+                      class="far fa-edit text-info"
+                    ></i>
+                  </td>
+                  <td>
+                    <i
+                      (click)="eliminarActivity(Activity.id)"
+                      class="far fa-trash-alt text-danger"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

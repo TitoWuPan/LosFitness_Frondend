@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "los-fitness": {
+    "frontend-los-fitness": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/los-fitness",
+            "outputPath": "dist/frontend-los-fitness",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -68,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "los-fitness:build:production"
+              "browserTarget": "frontend-los-fitness:build:production"
             },
             "development": {
-              "browserTarget": "los-fitness:build:development"
+              "browserTarget": "frontend-los-fitness:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "los-fitness:build"
+            "browserTarget": "frontend-los-fitness:build"
           }
         },
         "test": {
@@ -102,5 +103,5 @@
       }
     }
   },
-  "defaultProject": "los-fitness"
+  "defaultProject": "frontend-los-fitness"
 }
