@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 offset-lg-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">LISTADO DE DIETA <button (click)="onDataTable()" class="far fa-edit text-info"></button></h5>
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Puntuación</th>
+                </tr>
+              <tbody>
+                <tr *ngFor="let Dieta of Dietas">
+                  <td>{{ Dieta.titulo }}</td>
+                  <td>{{ Dieta.describcion }}</td>
+                  <td>{{ Dieta.puntuacion }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

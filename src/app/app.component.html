@@ -1,2 +1,23 @@
-Homla<br>
-<router-outlet></router-outlet>
+<div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Los Fitness</a>
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a routerLink="" class="nav-link">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="User-info" class="nav-link">Usuario</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="activity" class="nav-link">Actividad</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="dieta" class="nav-link">Dieta</a>
+        </li>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

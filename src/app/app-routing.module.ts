@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {UserProfileComponent} from './user-profile/user-profile.component';
+import { ActivityComponent } from './components/activity/activity.component';
+import { DietaComponent } from './components/dieta/dieta.component';
+import { HomeComponent } from './components/home/home.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
-  {path: 'user/:id', component : UserProfileComponent}
+  {path:'', component: HomeComponent},
+  {path:'activity', component: ActivityComponent},
+  {path:'dieta', component: DietaComponent},
+  {path:'User-info', component: UserProfileComponent},
 ];
 
 @NgModule({

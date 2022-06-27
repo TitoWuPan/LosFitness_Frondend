@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-lg-5 offset-lg-3">
+        <div class="card">
+            <div class="container">
+            <h4><b>{{user.nombre}} {{user.apellido}}</b></h4>
+            <p>Género: {{user.genero}}</p>
+            <p>Premium: {{user.premium ? 'Sí' : 'No'}}</p>
+            <p>Eliminar Usuario <button (click)="deleteUser()" class="far fa-trash-alt text-danger" ></button></p>
+        </div>
+    </div>
+</div>
+
+
